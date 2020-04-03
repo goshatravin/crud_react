@@ -44,6 +44,7 @@ class AddTask extends React.PureComponent {
                     <label>Add new task:</label>
                     <label>{this.state.IsEmpty ? '': 'Empty string oops'}</label>
                     <input type="text" onChange={ this.handleChange } value={this.state.data.content}/>
+                    <button>Add new onChange</button>
                 </form>
             </div>
         )

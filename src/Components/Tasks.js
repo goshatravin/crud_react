@@ -10,12 +10,15 @@ class Tasks extends React.PureComponent {
     handleData() {
         const { task }  = this.props;
         const { editTask } = this.props;
+        const { deleteTask } = this.props;
         this.setState({
             taskList: (
                 task.map((item) => {
                     return(
-                        <div onClick={() => {editTask(item.id)}} className="collections" key={item.id}>
+                        <div  className="collections" key={item.id}>
                             <span>{item.content}</span>
+                            <button onClick={() => {deleteTask(item.id)}}>Delete</button>
+                            <button onClick={() => {editTask(item.id)}}>Edite</button>
                         </div>
                     )
                 })

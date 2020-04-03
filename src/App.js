@@ -19,9 +19,11 @@ class App extends React.PureComponent {
             ]
         }
         this.addTask = this.addTask.bind(this);
+        this.deleteTask = this.deleteTask.bind(this);
     }
     addTask(task) {
-        task.id = Math.floor((Math.random() * 10 ))
+        // task.id = Math.floor((Math.random() * 10 ))
+        task.id = this.state.data.length + 1
         let tasks = [...this.state.data, task];
         console.log(tasks);
         this.setState({
@@ -30,11 +32,20 @@ class App extends React.PureComponent {
     }
     editTask(task) {
         console.log(task);
+
+    }
+    deleteTask(task) {
+        const tasks = this.state.data.filter((item) => {
+            return item.id !== task
+        })
+        this.setState({
+            data: tasks
+        })
     }
     render() {
         return(
             <div className="App">
-                <Tasks task={ this.state.data } editTask={ this.editTask }/>
+                <Tasks task={ this.state.data } editTask={ this.editTask } deleteTask={ this.deleteTask }/>
                 <AddTask addTask={ this.addTask }/>
                 <EditTask />
             </div>
