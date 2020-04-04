@@ -18,7 +18,7 @@ class Tasks extends React.PureComponent {
                         <div  className="collections" key={item.id}>
                             <span>{item.content}</span>
                             <button onClick={() => {deleteTask(item.id)}}>Delete</button>
-                            <button onClick={() => {editTask(item.id)}}>Edite</button>
+                            <button onClick={() => {editTask(item)}}>Edite</button>
                         </div>
                     )
                 })
