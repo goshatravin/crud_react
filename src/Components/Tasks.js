@@ -1,4 +1,5 @@
 import React from 'react'
+import './Tasks.css'
 
 class Tasks extends React.PureComponent {
     constructor(props) {
@@ -15,10 +16,12 @@ class Tasks extends React.PureComponent {
             taskList: (
                 task.map((item) => {
                     return(
-                        <div  className="collections" key={item.id}>
-                            <span>{item.content}</span>
-                            <button onClick={() => {deleteTask(item.id)}}>Delete</button>
-                            <button onClick={() => {editTask(item)}}>Edite</button>
+                        <div className="collections" key={item.id}>
+                            <span className="collections-text">{item.content}</span>
+                            <div className="btn-group">
+                                <button className="btn-del" onClick={() => {deleteTask(item.id)}}>DELETE</button>
+                                <button className="btn-edit" onClick={() => {editTask(item)}}>EDIT</button>
+                            </div>
                         </div>
                     )
                 })

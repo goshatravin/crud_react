@@ -1,4 +1,6 @@
 import React from 'react'
+import './AddTask.css'
+
 class AddTask extends React.PureComponent {
     constructor(props) {
         super(props);
@@ -41,11 +43,10 @@ class AddTask extends React.PureComponent {
         return(
             <div className="addtask">
                 <form onSubmit={ this.handleSubmit }>
-                    <label>Add new task:</label>
-                    <label>{this.state.IsEmpty ? '': 'Empty string oops'}</label>
-                    <input type="text" onChange={ this.handleChange } value={this.state.data.content}/>
-                    <button>Add new onChange</button>
+                    <input className="input-add"   placeholder="Add new task" type="text" onChange={ this.handleChange } value={this.state.data.content} />
+                    <input type="submit"  className="btn btn-add" value='+'/>
                 </form>
+                <label>{this.state.IsEmpty ? '': 'Empty string oops'}</label>
             </div>
         )
     }

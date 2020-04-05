@@ -2,13 +2,8 @@ import React from 'react';
 import Tasks from './Components/Tasks';
 import AddTask from './Components/AddTask';
 import EditTask from './Components/EditTask';
-// function App() {
-//   return (
-//     <div className="App">
+import './App.css'
 
-//     </div>
-//   );
-// }
 class App extends React.PureComponent {
     constructor(props){
         super(props);
@@ -24,24 +19,20 @@ class App extends React.PureComponent {
         this.deleteTask = this.deleteTask.bind(this);
         this.editTask = this.editTask.bind(this);
         this.updateUser = this.updateUser.bind(this);
+        this.cancelChange = this.cancelChange.bind(this);
     }
     addTask(task) {
-        console.log(task);
-        // task.id = Math.floor((Math.random() * 10 ))
         task.id = this.state.data.length + 1
         let tasks = [...this.state.data, task];
-        console.log(tasks);
         this.setState({
             data: tasks
         })
     }
     editTask(task) {
-        console.log(task);
         this.setState({
             editing: true,
             currentUser: task
         })
-
     }
     updateUser(task) {
         this.setState({
@@ -61,12 +52,18 @@ class App extends React.PureComponent {
             data: tasks
         })
     }
+    cancelChange(task) {
+        this.setState({
+            editing: false,
+            currentUser: {id: null, content: ''}
+        })
+    }
     render() {
         return(
             <div className="App">
                 <Tasks task={ this.state.data } editTask={ this.editTask } deleteTask={ this.deleteTask }/>
                 {this.state.editing ? (
-                    <EditTask  current={this.state.currentUser} updateUser={this.updateUser}/>
+                    <EditTask  current={this.state.currentUser} updateUser={this.updateUser} cancelChange={ this.cancelChange}/>
                 ) : (
                     <AddTask addTask={ this.addTask }/>
                 )}

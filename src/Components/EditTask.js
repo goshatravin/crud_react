@@ -1,4 +1,6 @@
 import React from 'react';
+import './AddTask.css'
+
 class EditTask extends React.PureComponent {
     constructor(props) {
         super(props);
@@ -12,7 +14,6 @@ class EditTask extends React.PureComponent {
     }
     componentWillMount() {
         const { current } = this.props
-        console.log(current);
         this.setState({
             data:{
                 content: current.content,
@@ -28,11 +29,15 @@ class EditTask extends React.PureComponent {
             }
         })
     }
+    handleCancel = (e) => {
+        const { cancelChange } = this.props;
+        e.preventDefault()
+        cancelChange();
+    }
     handleSubmit = (e) => {
         e.preventDefault()
         const { updateUser } = this.props;
         if(this.state.data.content !== '') {
-            console.log(this.state.data);
             updateUser(this.state.data);
             this.setState({
                 data: {
@@ -54,13 +59,12 @@ class EditTask extends React.PureComponent {
     render() {
         return(
         <div className="addtask">
-        <form onSubmit={ this.handleSubmit }>
-            <label>Edit task:</label>
-            <label>{this.state.IsEmpty ? '': 'Empty string oops'}</label>
-            <input type="text" onChange={ this.handleChange } value={this.state.data.content}/>
-            <button >Save</button>
-            <button>Cancel</button>
+        <form >
+            <input type="text"  className="input-add" onChange={ this.handleChange } value={this.state.data.content}/>
+            <input type="submit"  className="btn btn-add" value='✓' onClick={ this.handleSubmit }/>
+            <input type="submit"  className="btn btn-cencel" value='Cancel' onClick={ this.handleCancel }/>
         </form>
+        <label>{this.state.IsEmpty ? '': 'Empty string oops'}</label>
     </div>
     )
     }
