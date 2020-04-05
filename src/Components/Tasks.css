@@ -1,0 +1,48 @@
+.tasks {
+    margin-bottom: 1rem;
+}
+.collections {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+    background: #eef2f4;
+    padding: 1rem;
+    border-radius: 0.5rem;
+}
+.collections-text {
+    font-size: 1.3rem;
+    color: #23343A
+}
+.btn-group {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: space-around;
+}
+.btn {
+    font-size: 0.7rem;
+    border: none;
+    outline: none;
+    font-weight: 500;
+}
+.btn-del {
+    background: #ea4630;
+    width: 7rem;
+    height: 2rem;
+    border-radius: 0.3rem;
+    color: white;
+    font-size: 0.7rem;
+    border: none;
+    outline: none;
+    font-weight: 500;
+}
+.btn-edit {
+    background: #fcc600;
+    width: 7rem;
+    height: 2rem;
+    border-radius: 0.3rem;
+    color: black;
+    font-size: 0.7rem;
+    font-weight: 500;
+    border: none;
+    outline: none;
+}

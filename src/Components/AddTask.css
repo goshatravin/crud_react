@@ -1,0 +1,42 @@
+
+form {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+input[type=submit], input[type=text] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    padding: 0;
+    margin: 0;
+}
+.btn-add {
+    background: #146b3a;
+    color: white;
+    width: 5rem;
+    height: 3.1rem;
+    font-size: 2rem;
+    border-radius: 0;
+}
+.input-add {
+    border: 1px solid grey;
+    height: 3rem;
+    width: 100%;
+    border-radius: 0.2rem 0rem 0rem 0.2rem;
+    color: #23343A;
+    font-size: 1.2rem;
+    padding-left: 1rem!important;
+    outline: none;
+}
+.btn-cencel {
+    background: grey;
+    color: white;
+    width: 5rem;
+    height: 3.1rem;
+    font-size: 1rem;
+    border-radius: 0rem 0.3rem 0.3rem 0rem;
+}
+.input-add::placeholder {
+    font-size: 1rem;
+}
